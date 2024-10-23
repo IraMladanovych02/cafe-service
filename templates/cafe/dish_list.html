@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Dish List</h1>
+  {% if dish_list %}
+    <ul>
+    {% for dish in dish_list %}
+      <li><a href="{{ dish.get_absolute_url }}">{{ dish.name }}({{ dish.price }})</a></li>
+    {% endfor %}
+    </ul>
+  {% else %}
+    <p>There are no Dish Type in Cafe. Please, try later!</p>
+  {% endif %}
+
+{% endblock %}
