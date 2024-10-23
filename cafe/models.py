@@ -1,5 +1,6 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
+from django.urls import reverse
 
 from cafe_service import settings
 
@@ -34,9 +35,12 @@ class Dish(models.Model):
     def __str__(self):
         return f"{self.dish_type.name} {self.name}{self.price}"
 
+    def get_absolute_url(self):
+        return reverse("cafe:dish-detail", args=[str(self.id)])
+
 
 class Cook(AbstractUser):
-    years_of_experience = models.PositiveIntegerField()
+    years_of_experience = models.PositiveIntegerField(null=True, blank=True)
 
     class Meta:
         ordering = ("username",)
