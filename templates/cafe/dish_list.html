@@ -1,15 +1,51 @@
+{#{% extends "base.html" %}#}
+{##}
+{#{% block content %}#}
+{#  <h1>Dish List</h1>#}
+{#  {% if dish_list %}#}
+{#    <ul>#}
+{#    {% for dish in dish_list %}#}
+{#      <li><a href="{{ dish.get_absolute_url }}">{{ dish.name }}({{ dish.price }})</a></li>#}
+{#    {% endfor %}#}
+{#    </ul>#}
+{#  {% else %}#}
+{#    <p>There are no Dish Type in Cafe. Please, try later!</p>#}
+{#  {% endif %}#}
+{##}
+{#{% endblock %}#}
 {% extends "base.html" %}
+{% load crispy_forms_filters %}
 
 {% block content %}
-  <h1>Dish List</h1>
+  <h1>
+    Dish List
+    <a style="float: right" href="{% url 'cafe:dish-create' %}">+</a></h1>
   {% if dish_list %}
-    <ul>
-    {% for dish in dish_list %}
-      <li><a href="{{ dish.get_absolute_url }}">{{ dish.name }}({{ dish.price }})</a></li>
-    {% endfor %}
-    </ul>
+    <table class="table">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Update</th>
+        <th>Delete</th>
+      </tr>
+      {% for dish in dish_list %}
+        <tr>
+          <td>
+            {{ dish.id }}
+          </td>
+          <td>
+            {{ dish.name }}
+          </td>
+          <td>
+            <a href={% url 'cafe:dish-update' pk=dish.id %}>Update</a>
+          </td>
+          <td>
+            <a href={% url 'cafe:dish-delete' pk=dish.id %}>Delete</a>
+          </td>
+        </tr>
+      {% endfor %}
+    </table>
   {% else %}
-    <p>There are no Dish Type in Cafe. Please, try later!</p>
+    <p>There are no Dish in Cafe. Please, try later!</p>
   {% endif %}
-
 {% endblock %}

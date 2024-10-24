@@ -1,6 +1,8 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 from django.urls import reverse
+from django.core.validators import MinValueValidator, MaxValueValidator
+
 
 from cafe_service import settings
 
@@ -40,7 +42,15 @@ class Dish(models.Model):
 
 
 class Cook(AbstractUser):
-    years_of_experience = models.PositiveIntegerField(null=True, blank=True)
+    years_of_experience = models.IntegerField(
+        null=True,
+        blank=True,
+        default=0,
+        validators=[
+            MaxValueValidator(99),
+            MinValueValidator(0),
+        ]
+    )
 
     class Meta:
         ordering = ("username",)

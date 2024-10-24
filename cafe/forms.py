@@ -16,6 +16,7 @@ class DishForm(forms.ModelForm):
 
 
 class CookForm(forms.ModelForm):
+
     class Meta:
         model = Cook
         fields = "__all__"
