@@ -6,6 +6,7 @@ from django.urls import reverse_lazy
 from django.views import generic
 
 from cafe.models import Dish, DishType, Cook
+from cafe.forms import CookCreationForm, CookSearchForm
 
 
 @login_required
@@ -86,10 +87,14 @@ class DishDeleteView(LoginRequiredMixin, generic.DeleteView):
 
 class CookListView(LoginRequiredMixin, generic.ListView):
     model = Cook
-    queryset = Cook.objects.prefetch_related("dish_types")
+    queryset = Cook.objects.prefetch_related("dishes")
     paginate_by = 5
 
 
 class CookDetailView(LoginRequiredMixin, generic.DetailView):
     model = Cook
 
+
+class CookCreateView(LoginRequiredMixin, generic.CreateView):
+    model = Cook
+    form_class = CookCreationForm

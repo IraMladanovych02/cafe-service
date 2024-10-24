@@ -52,5 +52,13 @@ class Cook(AbstractUser):
         ]
     )
 
+    def get_absolute_url(self):
+        return reverse(
+            "cafe:cook-detail", kwargs={"pk": self.pk}
+        )
+
     class Meta:
         ordering = ("username",)
+
+    def __str__(self):
+        return self.username
