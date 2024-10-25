@@ -79,9 +79,7 @@ class PrivateDishTests(TestCase):
             list(response.context["dish_list"]),
             list(dishes),
         )
-        self.assertTemplateUsed(
-            response, "cafe/dish_list.html"
-        )
+        self.assertTemplateUsed(response, "cafe/dish_list.html")
 
 
 class DishSearchTests(TestCase):
@@ -143,9 +141,7 @@ class PrivateCookTests(TestCase):
             list(response.context["cook_list"]),
             list(cooks),
         )
-        self.assertTemplateUsed(
-            response, "cafe/cook_list.html"
-        )
+        self.assertTemplateUsed(response, "cafe/cook_list.html")
 
 
 class CookSearchTests(TestCase):

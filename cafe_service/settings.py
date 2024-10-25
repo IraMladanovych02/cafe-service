@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/5.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
+
 import os
 from pathlib import Path
 
@@ -40,7 +41,7 @@ INSTALLED_APPS = [
     "debug_toolbar",
     "cafe",
     "crispy_forms",
-    "crispy_bootstrap4"
+    "crispy_bootstrap4",
 ]
 
 MIDDLEWARE = [
@@ -126,7 +127,7 @@ STATIC_URL = "static/"
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
-ASSETS_ROOT = 'static/assets'
+ASSETS_ROOT = "static/assets"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
@@ -136,9 +137,7 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 AUTH_USER_MODEL = "cafe.Cook"
 LOGIN_REDIRECT_URL = "/"
 
-INTERNAL_IPS = [
-    "127.0.0.1"
-]
+INTERNAL_IPS = ["127.0.0.1"]
 
 CRISPY_TEMPLATE_PACK = "bootstrap4"
-LOGOUT_REDIRECT_URL = '/cafe'
+LOGOUT_REDIRECT_URL = "/cafe"

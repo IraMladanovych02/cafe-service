@@ -6,7 +6,12 @@ from django.urls import reverse_lazy
 from django.views import generic
 
 from cafe.models import Dish, DishType, Cook
-from cafe.forms import CookCreationForm, CookSearchForm, DishSearchForm, DishTypeSearchForm
+from cafe.forms import (
+    CookCreationForm,
+    CookSearchForm,
+    DishSearchForm,
+    DishTypeSearchForm,
+)
 
 
 @login_required
@@ -34,9 +39,7 @@ class DishTypeListView(LoginRequiredMixin, generic.ListView):
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
         name = self.request.GET.get("name", "")
-        context["search_form"] = DishTypeSearchForm(
-            initial={"name": name}
-        )
+        context["search_form"] = DishTypeSearchForm(initial={"name": name})
         return context
 
     def get_queryset(self):
@@ -56,7 +59,7 @@ class DishTypeDetailView(LoginRequiredMixin, generic.DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         dish_type = self.get_object()
-        context['dishes'] = dish_type.dishes.all()
+        context["dishes"] = dish_type.dishes.all()
         return context
 
 
@@ -131,9 +134,7 @@ class CookListView(LoginRequiredMixin, generic.ListView):
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
         username = self.request.GET.get("username", "")
-        context["search_form"] = CookSearchForm(
-            initial={"username": username}
-        )
+        context["search_form"] = CookSearchForm(initial={"username": username})
         return context
 
     def get_queryset(self):
@@ -176,6 +177,4 @@ def toggle_assign_to_dish(request, pk):
         dish.cooks.remove(cook)
     else:
         dish.cooks.add(cook)
-    return HttpResponseRedirect(
-        reverse_lazy("cafe:dish-detail", args=[pk])
-    )
+    return HttpResponseRedirect(reverse_lazy("cafe:dish-detail", args=[pk]))

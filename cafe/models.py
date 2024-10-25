@@ -22,13 +22,10 @@ class Dish(models.Model):
     description = models.TextField()
     price = models.DecimalField(max_digits=5, decimal_places=2)
     dish_type = models.ForeignKey(
-        "DishType",
-        on_delete=models.CASCADE,
-        related_name="dishes"
+        "DishType", on_delete=models.CASCADE, related_name="dishes"
     )
     cooks = models.ManyToManyField(
-        settings.AUTH_USER_MODEL,
-        related_name="dishes"
+        settings.AUTH_USER_MODEL, related_name="dishes"
     )
 
     class Meta:
@@ -49,13 +46,11 @@ class Cook(AbstractUser):
         validators=[
             MaxValueValidator(99),
             MinValueValidator(0),
-        ]
+        ],
     )
 
     def get_absolute_url(self):
-        return reverse(
-            "cafe:cook-detail", kwargs={"pk": self.pk}
-        )
+        return reverse("cafe:cook-detail", kwargs={"pk": self.pk})
 
     class Meta:
         ordering = ("username",)

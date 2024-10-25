@@ -16,11 +16,7 @@ class DishTypeSearchForm(forms.Form):
         max_length=255,
         required=False,
         label="",
-        widget=forms.TextInput(
-            attrs={
-                "placeholder": "Search by name"
-            }
-        )
+        widget=forms.TextInput(attrs={"placeholder": "Search by name"}),
     )
 
 
@@ -35,7 +31,7 @@ class DishSearchForm(forms.Form):
         max_length=255,
         required=False,
         label="",
-        widget=forms.TextInput(attrs={"placeholder": "Search dishes"})
+        widget=forms.TextInput(attrs={"placeholder": "Search dishes"}),
     )
 
 
@@ -53,7 +49,7 @@ class CookCreationForm(UserCreationForm):
     cooks = forms.ModelMultipleChoiceField(
         queryset=get_user_model().objects.all(),
         widget=forms.CheckboxSelectMultiple,
-        required=False
+        required=False,
     )
 
 
@@ -62,9 +58,5 @@ class CookSearchForm(forms.Form):
         max_length=255,
         required=False,
         label="",
-        widget=forms.TextInput(
-            attrs={
-                "placeholder": "Search by username"
-            }
-        )
+        widget=forms.TextInput(attrs={"placeholder": "Search by username"}),
     )

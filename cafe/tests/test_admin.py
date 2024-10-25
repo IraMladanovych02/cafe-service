@@ -7,8 +7,7 @@ class AdminSiteTests(TestCase):
     def setUp(self) -> None:
         self.client = Client()
         self.admin_user = get_user_model().objects.create_superuser(
-            username="admin",
-            password="admin12345"
+            username="admin", password="admin12345"
         )
         self.client.force_login(self.admin_user)
         self.cook = get_user_model().objects.create_user(
@@ -30,10 +29,7 @@ class AdminSiteTests(TestCase):
         """
         Test that cook's years of experience is on cook detail admin page
         """
-        url = reverse(
-            "admin:cafe_cook_change",
-            args=[self.cook.id]
-        )
+        url = reverse("admin:cafe_cook_change", args=[self.cook.id])
         response = self.client.get(url)
         self.assertContains(response, self.cook.years_of_experience)
 
