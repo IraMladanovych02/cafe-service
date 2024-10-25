@@ -135,9 +135,8 @@ ASSETS_ROOT = "static/assets"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 AUTH_USER_MODEL = "cafe.Cook"
-LOGIN_REDIRECT_URL = "/"
+LOGIN_REDIRECT_URL = "/cafe"
 
 INTERNAL_IPS = ["127.0.0.1"]
 
 CRISPY_TEMPLATE_PACK = "bootstrap4"
-LOGOUT_REDIRECT_URL = "/cafe"

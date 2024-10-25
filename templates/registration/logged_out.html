@@ -1,15 +1,9 @@
-{#{% extends "base.html" %}#}
-{##}
-{#{% block content %}#}
-{#  <p>Logged out!</p>#}
-{#  <a href="{% url 'login' %}">Click here to login again.</a>#}
-{#  <form method="post" action="{% url 'logout' %}">#}
-{#    {% csrf_token %}#}
-{#    <button type="submit">logout</button>#}
-{#  </form>#}
-{#{% endblock %}#}
-{% load i18n %}
-<form id="logout-form" method="post" action="{% url 'admin:logout' %}">
-  {% csrf_token %}
-  <button type="submit">{% translate "Log out" %}</button>
-</form>
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="container my-5 text-center">
+    <h2>You have been successfully logged out.</h2>
+    <p>Thank you for visiting Cafe Service!</p>
+  <a href="{% url 'login'%}">Click here to login again.</a>
+  </div>
+{% endblock %}
