@@ -22,7 +22,7 @@ class Dish(models.Model):
     description = models.TextField()
     price = models.DecimalField(max_digits=5, decimal_places=2)
     dish_type = models.ForeignKey(
-        DishType,
+        "DishType",
         on_delete=models.CASCADE,
         related_name="dishes"
     )

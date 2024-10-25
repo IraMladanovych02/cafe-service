@@ -56,7 +56,7 @@ class DishTypeDetailView(LoginRequiredMixin, generic.DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         dish_type = self.get_object()
-        context['dishes'] = dish_type.dish_set.all()
+        context['dishes'] = dish_type.dishes.all()
         return context
 
 
@@ -82,7 +82,7 @@ class DishTypeDeleteView(LoginRequiredMixin, generic.DeleteView):
 
 class DishListView(LoginRequiredMixin, generic.ListView):
     model = Dish
-    queryset = Dish.objects.select_related("dish_type")
+    # queryset = Dish.objects.select_related("dish_type")
     paginate_by = 5
 
     def get_context_data(self, *, object_list=None, **kwargs):

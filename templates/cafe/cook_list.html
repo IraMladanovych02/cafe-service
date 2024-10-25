@@ -23,6 +23,9 @@
             {{ cook.username }}
           </td>
           <td>
+            <a href={% url 'cafe:cook-detail' pk=cook.id %}>Detail</a>
+          </td>
+          <td>
             <a href={% url 'cafe:cook-update' pk=cook.id %}>Update</a>
           </td>
           <td>

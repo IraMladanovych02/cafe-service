@@ -4,11 +4,16 @@
 {% block content %}
   <h1>
     Dish List
-    <a style="float: right" href="{% url 'cafe:dish-create' %}">+</a></h1>
+    <a style="float: right" href="{% url 'cafe:dish-create' %}">
+      Create
+    </a>
+  </h1>
+  
   <form method="get" action="" class="form-inline">
   {{ search_form|crispy }}
   <input class="btn btn-secondary" type="submit" value="Submit">
   </form>
+  
   {% if dish_list %}
     <table class="table">
       <tr>
@@ -17,6 +22,7 @@
         <th>Update</th>
         <th>Delete</th>
       </tr>
+      
       {% for dish in dish_list %}
         <tr>
           <td>
@@ -24,6 +30,9 @@
           </td>
           <td>
             {{ dish.name }}
+          </td>
+          <td>
+            <a href={% url 'cafe:dish-detail' pk=dish.id %}>Detail</a>
           </td>
           <td>
             <a href={% url 'cafe:dish-update' pk=dish.id %}>Update</a>

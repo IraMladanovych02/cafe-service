@@ -26,6 +26,9 @@
             {{ dish_type.name }}
           </td>
           <td>
+            <a href={% url 'cafe:dish-type-detail' pk=dish_type.id %}>Detail</a>
+          </td>
+          <td>
             <a href={% url 'cafe:dish-type-update' pk=dish_type.id %}>Update</a>
           </td>
           <td>
