@@ -5,7 +5,7 @@ Cafe Kitchen Service is a web application built with Django to help cafes manage
 
 (Server loading takes some time. Wait, please)
 
-https://py-cafe-kitchen-service-1.onrender.com
+https://cafe-service-8rzl.onrender.com
 
 # Login Information
 
