@@ -32,6 +32,17 @@ DEBUG = os.getenv("DJANGO_DEBUG", "") != "False"
 
 ALLOWED_HOSTS = ["127.0.0.1", "cafe-restaurant-service.onrender.com"]
 
+SECURE_HSTS_SECONDS = 3136000
+
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+
+SECURE_SSL_REDIRECT = False  # If True site will not run correct
+
+SESSION_COOKIE_SECURE = True
+
+CSRF_COOKIE_SECURE = True
+
+SECURE_HSTS_PRELOAD = True
 
 # Application definition
 
