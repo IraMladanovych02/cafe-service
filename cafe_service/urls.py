@@ -26,5 +26,4 @@ urlpatterns = [
     path("", include("cafe.urls", namespace="cafe")),
     path("accounts/", include("django.contrib.auth.urls")),
     path("logout/", auth_views.LogoutView.as_view(), name="logout"),
-    path("__debug__/", include("debug_toolbar.urls")),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
