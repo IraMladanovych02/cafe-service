@@ -30,7 +30,7 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv("DJANGO_DEBUG", "") != "False"
 
-ALLOWED_HOSTS = ["127.0.0.1", "localhost", "cafe-service-8rzl.onrender.com"]
+ALLOWED_HOSTS = ["127.0.0.1", "cafe-restaurant-service.onrender.com"]
 
 
 # Application definition
