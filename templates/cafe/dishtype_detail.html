@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>
+    {{ object.name }}
+    <a href="{% url 'cafe:dish-type-delete' pk=object.pk %}" class="btn btn-danger link-to-page">
+      Delete
+    </a>
+    <a href="{% url 'cafe:dish-type-update' pk=object.pk %}" class="btn btn-secondary link-to-page">
+      Update
+    </a>
+  </h1>
+
+  <p>Dish Type: {{ object.name }}</p>
+
+  <h2>Dishes</h2>
+  {% if dishes %}
+    <ul>
+      {% for dish in dishes %}
+        <li>{{ dish.name }}
+          <ul>
+            {% for cook in dish.cooks.all %}
+              <li>{{ cook.username }} ({{ cook.first_name }} {{ cook.last_name }})</li>
+            {% endfor %}
+          </ul>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No dishes</p>
+  {% endif %}
+{% endblock %}

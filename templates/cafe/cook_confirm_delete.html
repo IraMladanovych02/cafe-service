@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+  
+    <h1 style="margin-bottom: 50px;">Delete Cook: {{ cook.username }}({{ cook.first_name }}{{ cook.last_name }})?</h1>
+    <form action="" method="post">
+      {% csrf_token %}
+
+      <input type="submit" value="Yes" class="btn btn-danger" style="margin-right: 5px;">
+      <a href="{% url 'cafe:dish-list' %}" class="btn btn-secondary">Cancel</a>
+    </form>
+
+  <div style="height: 100px;"></div>
+  <div style="height: 200px;"></div>
+{% endblock %}
